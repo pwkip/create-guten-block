@@ -114,7 +114,8 @@ INSIDE: /local_dev_site.tld/wp-content/plugins/my-block
 |
 ├── dist
 |  ├── blocks.build.js
-|  ├── blocks.editor.build.css
+|  ├── blocks.editor.build.css|
+|  ├── blocks.frontend.build.js
 |  └── blocks.style.build.css
 |
 └── src
@@ -124,6 +125,7 @@ INSIDE: /local_dev_site.tld/wp-content/plugins/my-block
    |  └── style.scss
    |
    ├── blocks.js
+   ├── frontend.js
    ├── common.scss
    └── init.php
 ```

@@ -77,6 +77,7 @@ const extractConfig = {
 module.exports = {
 	entry: {
 		'./dist/blocks.build': paths.pluginBlocksJs, // 'name' : 'path/file.ext'.
+		'./dist/blocks.frontend.build': paths.pluginBlocksFrontendJs, // 'name' : 'path/file.ext'.
 	},
 	output: {
 		// Add /* filename */ comments to generated require()s in the output.
@@ -134,7 +135,7 @@ module.exports = {
 			},
 			mangle: {
 				safari10: true,
-				except: ['__', '_n', '_x', '_nx' ],
+				except: [ '__', '_n', '_x', '_nx' ],
 			},
 			output: {
 				comments: false,

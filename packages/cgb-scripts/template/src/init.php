@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * 1. blocks.style.build.css - Frontend + Backend.
  * 2. blocks.build.js - Backend.
  * 3. blocks.editor.build.css - Backend.
+ * 4. blocks.frontend.build.js - Frontend + Backend
  *
  * @uses {wp-blocks} for block type registration & related functions.
  * @uses {wp-element} for WP Element abstraction — structure of blocks.
@@ -42,6 +43,15 @@ function <% blockNamePHPLower %>_cgb_block_assets() { // phpcs:ignore
 		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
 		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
 		null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
+		true // Enqueue the script in the footer.
+	);
+
+	// Register block editor script for frontend and backend.
+	wp_enqueue_script(
+		'<% blockNamePHPLower %>-cgb-blocks-frontend-js', // Handle.
+		plugins_url( '/dist/blocks.frontend.build.js', dirname( __FILE__ ) ), // blocks.frontend.build.js: We register the frontend scripts for block here. Built with Webpack.
+		array(), // Dependencies, defined above.
+		null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.frontend.build.js' ), // Version: filemtime — Gets file modification time.
 		true // Enqueue the script in the footer.
 	);
 
